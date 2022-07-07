@@ -1,7 +1,12 @@
 package com.platzi.javatests.util;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 public class StringUtilTest {
     @Test
     public void repeat_string_once() {
@@ -23,22 +28,24 @@ public class StringUtilTest {
         StringUtil.repeat("hola", -1);
     }
 
+    @Test
+    public void test_string_is_not_empty() {
+        assertFalse(StringUtil.isEmpty("oscar"));
+    }
 
+    @Test
+    public void empty_qoute_is_string_empty() {
+        assertTrue(StringUtil.isEmpty(""));
+    }
 
-//    @Test
-//    public void testRepeat() {
-//        Assert.assertEquals("holaholahola", StringUtil.repeat("hola", 3));
-//        Assert.assertEquals("hola", StringUtil.repeat("hola", 1));
-//    }
+    @Test
+    public void null_is_string_empty() {
+        assertTrue(StringUtil.isEmpty(null));
+    }
 
+    @Test
+    public void string_spaces_is_string_empty() {
+        assertTrue(StringUtil.isEmpty("   "));
+    }
 
-//    public static void main(String[] args) {
-//        assertEquals(StringUtil.repeat("hola", 3), "holaholahola");
-//        assertEquals(StringUtil.repeat("hola", 1), "hola");
-//    }
-//    private static void assertEquals(String actual, String expected) {
-//        if (!actual.equals(expected)) {
-//            throw new RuntimeException(actual + " is not equal to expected " + expected);
-//        }
-//    }
 }
